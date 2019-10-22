@@ -4,3 +4,4 @@
 我太菜了
 不要用getch(),getche(),gotoxy(),clrscr()
 clock()/ CLOCK_PER_SEC 用来计算运行时间
+printf("%.*lf", x, d)用来精确到小数点后x位
