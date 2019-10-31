@@ -1,0 +1,10 @@
+#include<stdio.h>
+int main(){
+    int c, sum = 0, count_O = 0;
+    while ((c = getchar()) != EOF){
+        if (c == 'O')  sum += ++count_O;
+        else if (c == 'X') count_O = 0;
+    }
+    printf("%d\n", sum);
+    return 0;
+}
