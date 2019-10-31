@@ -1,0 +1,34 @@
+#include<stdio.h>
+#include<string.h>
+#include<stdlib.h>
+#include<iostream>
+using namespace std;
+const char name[] = "CHON";
+const double fweight[] = {12.01, 1.008, 16.00, 14.01};
+int main(){
+    char c[5];
+    char s[50];
+    int num = 0;
+    float sum = 0.0, weight = 0.0;
+    fgets(s, 50, stdin);
+    for (int i = 0; i < strlen(s); i++){
+        if(isalpha(s[i])){
+            for (int j = 0; j < 4; j++)
+                if (s[i] == name[j]){
+                    weight = fweight[j];
+                    break;
+                }
+            num = 0;
+            if (isalpha(s[i+1]) || i == strlen(s) - 2)
+                    sum += weight;
+            else{
+                for (int k = i+1; k < strlen(s) && isdigit(s[k]); k++)
+                    c[num++] = s[k];
+                sum += atof(c) * weight;//atof()用来将字符串变成double类型小数
+            }
+            memset(c, '\0', sizeof(c));
+        }
+    }
+    printf("%.3fg/mol\n", sum);
+    return 0;
+}
