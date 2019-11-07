@@ -1,0 +1,26 @@
+#include<stdio.h>
+#include<string.h>
+int main(){
+    char s[100];
+    int kas = 0, T = 0;   //kas判断是否存在周期
+    scanf("%s", s);
+    for (int i = 0; i < strlen(s)/2; i++){
+        T++;
+        if (strlen(s) % T == 0){
+            kas = 1;
+            for (int j = 0; j+T < strlen(s); j++){
+                    if (s[j] != s[T+j]){
+                        kas = 0;
+                        break;
+                    }
+            }
+        }
+    if (kas)
+        break;
+    }
+    if (kas)
+        printf("%d\n", T);
+    else
+        printf("%d\n", strlen(s));
+    return 0;
+}
